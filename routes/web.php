@@ -15,3 +15,6 @@ Route::controller(AuthController::class)->group(function(){
     Route::post('/auth/login', 'checkLogin')->name('auth');
 });
 
+// Route::get('admin/dashboard', function(){
+//     return view('pages.admin.Dashboard');
+// })->name('admindash');
