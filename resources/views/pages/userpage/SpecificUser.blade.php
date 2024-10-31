@@ -43,8 +43,13 @@
             <!-- Add more fields as needed -->
         </div>
         <div class="d-flex justify-content-end mt-4">
-            <a href={{route('userProfile.edit', $user->user_id)}} class="btn btn-primary btn-lg">Edit</a>
+            <a href={{route('userProfile.edit', $user->user_id)}} class="btn btn-primary btn-lg me-3">Edit</a>
+            <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                @csrf
+                <button type="submit" class="btn btn-danger btn-lg">Logout</button>
+            </form>
         </div>
+
     </div>
 </body>
 </html>

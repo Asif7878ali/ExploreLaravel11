@@ -18,7 +18,7 @@
               <strong>Email:- </strong> {{ auth()->user()->email }}
           </div>
           @endauth
-          <form action="{{ route('logout') }}" method="POST" class="d-inline">
+          <form action="{{ route('logout') }}" method="POST" class="d-flex justify-content-end">
             @csrf
             <button type="submit" class="btn btn-danger btn-sm">Logout</button>
         </form>

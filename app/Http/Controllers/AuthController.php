@@ -37,7 +37,18 @@ class AuthController extends Controller
         }
     }
 
-    public function logout(){
-         dd('logut');
+    public function logout(Request $request){
+        // dd($request);
+        Auth::logout();
+         // Invalidate the session to prevent session fixation
+         $request->session()->invalidate();
+
+         // Regenerate the CSRF token to prevent reuse
+         $request->session()->regenerateToken();
+
+         session()->flash('success', 'Logged out successfully');
+ 
+         // Redirect to the login or home page
+         return to_route('loginpage');
     }
 }
