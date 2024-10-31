@@ -93,7 +93,15 @@ class UserProfileController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // dd($id);
+        $user = User::find($id);
+        // dd($user);
+        if(! $user){
+            abort('404', 'Record Not Found');
+        } else{
+            return view('pages.userpage.SpecificUser', compact('user'));
+        }
+      
     }
 
     /**
@@ -101,7 +109,14 @@ class UserProfileController extends Controller
      */
     public function edit(string $id)
     {
-        //
+         // dd($id);
+         $user = User::find($id);
+         if(! $user){
+            abort('404', 'Record Not Found');
+         } else{
+            return view('pages.auth.UpdateUser', compact('user'));
+         }
+       
     }
 
     /**
@@ -109,7 +124,64 @@ class UserProfileController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $cridentials = $request->validate([
+            'name' => [
+                'required',
+                'string',
+                'min:3',
+                'max:20',
+                'regex:/^[a-zA-Z\s]+$/'
+            ],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255'
+            ],
+            'address' => [
+                'required',
+                'string',
+                'min:10',
+                'max:255'
+            ],
+            'phoneNumber' => [
+                'required',
+                'digits:10',
+                'regex:/^[6-9][0-9]{9}$/'
+            ],
+            'gender' => [
+                'required',
+                'in:male,female,other'
+            ],
+            'admin' => [
+                'required',
+                'boolean'
+            ],
+            'password' =>[
+                'required',
+                'min:4',
+                'max:8'
+            ]
+        ]);
+
+        $user = User::find($id);
+        if(! $user){
+            abort('404', 'Record Not Found');
+        } else {
+           $user->update([
+            'name' => $cridentials['name'],
+            'email' => $cridentials['email'],
+            'address' => $cridentials['address'],
+            'number' => $cridentials['phoneNumber'],
+            'gender' => $cridentials['gender'],
+            'admin' => $cridentials['admin'],
+            'password' => $cridentials['password']
+           ]);
+        }
+
+        session()->flash('success', 'User Record Update Successfully');
+        return redirect()->back();
+
     }
 
     /**
@@ -117,6 +189,14 @@ class UserProfileController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::find($id);
+        if (! $user) {
+            abort('404', 'Record Not Found');
+        } else {
+           $user->delete();
+        }
+        session()->flash('success', 'User Delete Successfully');
+        return redirect()->back();
+        
     }
 }

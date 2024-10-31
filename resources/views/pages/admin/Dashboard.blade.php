@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>AdminDashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
     <div class="container my-4">
         <h1>Admin Panel</h1>
+         <!-- Success Alert -->
+         @if (session('success'))
+         <div class="alert alert-danger alert-dismissible fade show">
+             <strong>Success!</strong>
+             {{ session()->get('success') }}
+             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+         </div>
+     @endif
 
         <table class="table table-hover">
             <thead>
@@ -42,8 +50,8 @@
                                @endif
                            </td>
                            <td>
-                            <a class="btn btn-success btn-sm">View</a>
-                            <a class="btn btn-primary btn-sm">Update</a>
+                            <a href={{route('userProfile.show', $user->user_id)}} class="btn btn-success btn-sm">View</a>
+                            <a href={{route('userProfile.edit', $user->user_id)}} class="btn btn-primary btn-sm">Edit</a>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger btn-sm">Delete</button>    
                            </td>
                         </tr>                       
@@ -64,7 +72,11 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger btn-sm">Delete</button>
+           <form action="{{ route('userProfile.destroy', $user->user_id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button  type="submit" class="btn btn-danger btn-sm">Delete</button>
+           </form>
         </div>
       </div>
     </div>
