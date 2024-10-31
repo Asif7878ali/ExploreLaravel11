@@ -26,15 +26,18 @@ class AuthController extends Controller
              Auth::login($user);
 
              if ($user->admin) {
-                return to_route('admindash');
+                return to_route('userProfile.index');
             } else {
-                $id = $user->user_id;
                 // dd($id);
-                return to_route('userProfile.show', ['id' => $id]);
+                return to_route('userProfile.show', $user->user_id);
             }
         } else {
             session()->flash('error', 'Invalid email or password'); 
             return to_route('loginpage');
         }
+    }
+
+    public function logout(){
+         dd('logut');
     }
 }

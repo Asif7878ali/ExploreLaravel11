@@ -11,6 +11,17 @@
 <body>
     <div class="container my-4">
         <h1>Admin Panel</h1>
+          <!-- Authenticated User Info -->
+          @auth
+          <div>
+              <strong>Admin:- </strong> {{ auth()->user()->name }}<br>
+              <strong>Email:- </strong> {{ auth()->user()->email }}
+          </div>
+          @endauth
+          <form action="{{ route('logout') }}" method="POST" class="d-inline">
+            @csrf
+            <button type="submit" class="btn btn-danger btn-sm">Logout</button>
+        </form>
          <!-- Success Alert -->
          @if (session('success'))
          <div class="alert alert-danger alert-dismissible fade show">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Middleware\AdminDashboard;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function(){
@@ -10,11 +11,10 @@ Route::get('/', function(){
 
 Route::resource('userProfile',UserProfileController::class);
 
+Route::resource('userProfile', UserProfileController::class)->only('index')->middleware(AdminDashboard::class);
+
 Route::controller(AuthController::class)->group(function(){
     Route::get('/auth/login/page', 'showLoginPage')->name('loginpage');
     Route::post('/auth/login', 'checkLogin')->name('auth');
+    Route::post('/auth/logout', 'Logout')->name('logout');
 });
-
-// Route::get('admin/dashboard', function(){
-//     return view('pages.admin.Dashboard');
-// })->name('admindash');

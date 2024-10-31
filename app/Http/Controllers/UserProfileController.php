@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserProfileController extends Controller
 {
@@ -93,14 +94,20 @@ class UserProfileController extends Controller
      */
     public function show(string $id)
     {
-        // dd($id);
-        $user = User::find($id);
+        if(Auth::check()){
+            // dd(Auth::check());
+            $user = User::find($id);
         // dd($user);
         if(! $user){
             abort('404', 'Record Not Found');
         } else{
             return view('pages.userpage.SpecificUser', compact('user'));
         }
+        } else {
+            abort('404', 'Not Authenticated');
+        }
+;
+       
       
     }
 
