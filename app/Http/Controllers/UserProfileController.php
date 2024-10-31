@@ -12,7 +12,9 @@ class UserProfileController extends Controller
      */
     public function index()
     {
-        //
+        $usersdetail = User::all()->makeHidden(['password']);
+        // dd($usersdetail);
+        return view('pages.admin.Dashboard', compact('usersdetail'));
     }
 
     /**
