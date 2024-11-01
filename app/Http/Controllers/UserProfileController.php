@@ -14,7 +14,8 @@ class UserProfileController extends Controller
     public function index(Request $request)
     {
         echo $request->search;
-        $usersdetail = User::all()->makeHidden(['password']);
+        // $usersdetail = User::all()->makeHidden(['password']);
+        $usersdetail = User::paginate(6);
         // dd($usersdetail);
         return view('pages.admin.Dashboard', compact('usersdetail'));
     }

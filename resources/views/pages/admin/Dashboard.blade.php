@@ -87,6 +87,11 @@
                 </tbody>
             </table>
 
+                {{-- Pagination --}}
+                <div class="d-flex justify-content-center mt-3">
+                  {{ $usersdetail->links() }}
+              </div>
+
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -112,9 +117,6 @@
             </div>
     </div>
     @endif
-
-
-
 
 </body>
 
