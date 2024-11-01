@@ -54,6 +54,7 @@
                         <th scope="col">MobileNumber</th>
                         <th scope="col">Gender</th>
                         <th scope="col">is_Admin</th>
+                        <th scope="col">Created_at</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -73,6 +74,7 @@
                                     <span class="badge badge-secondary bg-secondary">No</span>
                                 @endif
                             </td>
+                            <td>{{$user->created_at}}</td>
                             <td>
                                 <a href={{ route('userProfile.show', $user->user_id) }}
                                     class="btn btn-success btn-sm">View</a>

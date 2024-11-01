@@ -9,7 +9,7 @@ class AdminPanelFunctionality extends Controller
 {
     public function searchUser(Request $request){
         $serchterm = $request->search;
-        $usersdetail = User::where('name', 'like', "%$serchterm%")->get();
+        $usersdetail = User::where('name', 'like', "%$serchterm%")->paginate(6);
         return view('pages.admin.Dashboard', compact('usersdetail'));        
     }
 }

@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -29,7 +32,25 @@ class User extends Authenticatable
         'admin',
         'password',
     ];
-
+       
+    //Accessor
+    protected function name(): Attribute
+    {
+         return Attribute::make(
+            get: function(string $value){
+               return ucfirst($value);
+            }
+         );
+    }
+    
+    protected function created_at(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value) { 
+                return Carbon::parse($value)->diffForHumans();
+            }
+        );
+    }    
     /**
      * The attributes that should be hidden for serialization.
      *
