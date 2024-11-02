@@ -33,7 +33,7 @@ class AuthController extends Controller
             }
         } else {
             session()->flash('error', 'Invalid email or password'); 
-            return to_route('loginpage');
+            return to_route('login');
         }
     }
 
@@ -49,6 +49,6 @@ class AuthController extends Controller
          session()->flash('success', 'Logged out successfully');
  
          // Redirect to the login or home page
-         return to_route('loginpage');
+         return to_route('login');
     }
 }

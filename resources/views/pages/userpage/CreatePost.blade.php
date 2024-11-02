@@ -34,6 +34,12 @@
                                 <label for="image">Choose Post Image</label>
                                 <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
                                 <img id="imagePreview" src="#" alt="Image Preview" class="img-fluid mt-2" style="display: none; max-height: 200px;"/>
+
+                                @error('image')
+                                <div class="alert alert-danger p-1" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             </div>
 
                             <!-- Title -->
