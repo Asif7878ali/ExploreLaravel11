@@ -48,6 +48,7 @@
                 @csrf
                 <button type="submit" class="btn btn-danger btn-lg">Logout</button>
             </form>
+            <a href={{route('post.create')}} class="btn btn-primary btn-lg me-3">Create a Post</a>
         </div>
 
     </div>

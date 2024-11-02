@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminPanelFunctionality;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Middleware\AdminDashboard;
 use Illuminate\Support\Facades\Route;
@@ -12,7 +13,8 @@ Route::get('/', function(){
 });
 
 //User Controller Route Create, Read, Update, Delete
-Route::resource('userProfile',UserProfileController::class);
+Route::resource('userProfile', UserProfileController::class);
+Route::resource('post', PostController::class);
 //Attach Middleware on Resouce Controller with only Index Method On UserProfile Controller
 Route::resource('userProfile', UserProfileController::class)->only('index')->middleware(AdminDashboard::class);
 

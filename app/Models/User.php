@@ -43,7 +43,7 @@ class User extends Authenticatable
          );
     }
     
-    protected function created_at(): Attribute
+    protected function createdAt(): Attribute
     {
         return Attribute::make(
             get: function ($value) { 
