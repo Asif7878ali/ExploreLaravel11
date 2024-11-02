@@ -19,7 +19,7 @@ class AdminDashboard
         if(Auth::check() && Auth::user()->admin){
             return $next($request);
         } else{
-            return to_route('loginpage');
+            return to_route('login');
         }
     }
 }

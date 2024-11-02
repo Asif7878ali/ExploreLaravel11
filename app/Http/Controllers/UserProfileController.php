@@ -13,7 +13,7 @@ class UserProfileController extends Controller
      */
     public function index(Request $request)
     {
-        echo $request->search;
+        // echo $request->search;
         // $usersdetail = User::all()->makeHidden(['password']);
         $usersdetail = User::paginate(6);
         // dd($usersdetail);

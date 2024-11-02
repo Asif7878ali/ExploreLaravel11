@@ -36,6 +36,11 @@
                   <a href={{route('login')}}  class="btn btn-primary btn-sm">Login</a>
                   <a href={{route('userProfile.create')}} class="btn btn-info btn-sm">Signup</a>    
                 </div>
+
+                <div class="lc-block m-2">
+                    <a href="{{route('post.index')}}"  class="btn btn-success btn-lg">Posts</a>
+                  </div>
+
             </div>
         </div>
     </div>
