@@ -11,6 +11,9 @@
 <body>
     <div class="container my-5">
         <h1 class="text-center mb-4">User Details</h1>
+        <div  class="d-flex justify-content-end m-2">
+            <a href={{route('post.show', $user->user_id)}} class="btn btn-danger btn-sm">Dashboard</a>
+        </div>
         <div class="card p-4">
             <div class="row mb-3">
                 <div class="col-md-3 font-weight-bold">Name:</div>

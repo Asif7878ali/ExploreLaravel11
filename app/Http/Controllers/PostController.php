@@ -63,7 +63,10 @@ class PostController extends Controller
    
     public function show(string $id)
     {
-        //
+          // Fetch posts created by the user with the specified ID
+          $userPosts = Post::where('person_who_create', $id)->get();
+        //   dd($userPosts);
+        return view('pages.userpage.UserPostDashboard', compact('userPosts'));
     }
 
    
