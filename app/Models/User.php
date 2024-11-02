@@ -23,8 +23,15 @@ class User extends Authenticatable
     
     protected $primaryKey = 'user_id';  
 
+     // Define the relationship with Post model
+     public function posts(){
+        // first parameter is forign key of posts table
+        // second parameter is primary key of users table
+        return $this->hasMany(Post::class,'person_who_create','user_id');
+     }
+
     protected $fillable = [
-       'name',
+        'name',
         'email',
         'address',
         'number',

@@ -17,10 +17,12 @@ Route::resource('userProfile', UserProfileController::class);
 Route::resource('post', PostController::class);
 //Attach Middleware on Resouce Controller with only Index Method On UserProfile Controller
 Route::resource('userProfile', UserProfileController::class)->only('index')->middleware(AdminDashboard::class);
+Route::resource('post', PostController::class)->only('create')->middleware('auth');
+
 
 //Authtication Route
 Route::controller(AuthController::class)->group(function(){
-    Route::get('/auth/login/page', 'showLoginPage')->name('loginpage');
+    Route::get('/auth/login/page', 'showLoginPage')->name('login');
     Route::post('/auth/login', 'checkLogin')->name('auth');
     Route::post('/auth/logout', 'Logout')->name('logout');
 });
