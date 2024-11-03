@@ -47,6 +47,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ $post->title }}</h5>
                             <p class="card-text">{{ $post->description }}</p>
+                            <p class="card-text"> Posted:- {{ $post->created_at }}</p>
                             <span class="btn btn-primary mt-auto">Written by: {{ $post->user->name ?? 'Unknown' }}</span>
                         </div>
                     </div>

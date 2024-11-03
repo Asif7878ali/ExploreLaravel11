@@ -72,17 +72,70 @@ class PostController extends Controller
    
     public function edit(string $id)
     {
-        //
+        $post = Post::find($id);
+        // dd($post);
+        if(! $post){
+            abort('404', 'Record Not Found');
+         } else{
+            return view('pages.userpage.UpdatePost', compact('post'));
+         }
     }
 
    
-    public function update(Request $request, string $id)
-    {
-        //
+   
+public function update(Request $request, string $id)
+{
+    $request->validate([
+        'image' => 'nullable|image',
+        'title' => 'required|string|max:50',
+        'description' => 'required|string',
+        'post' => 'required|boolean',
+    ]);
+
+    $post = Post::find($id);
+
+    // Check if Post exists
+    if (!$post) {
+        abort(404, 'Record Not Found');
     }
+
+    // Update the post attributes
+    $post->title = $request->title;
+    $post->description = $request->description;
+    $post->viewable = $request->post;
+
+    // Handle new image upload
+    if ($request->hasFile('image')) {
+        // Delete the old image if it exists
+        if ($post->post_image && Storage::disk('public')->exists( $post->post_image)) {
+            Storage::disk('public')->delete( $post->post_image);
+        }
+
+        // Store the new image and update the post_image attribute
+           $imageiwithpath  = Storage::disk('public')->put('/uploads/PostImage', $request->image);
+           $post->post_image = $imageiwithpath;
+    }
+
+    // Save all updates to the post
+    $post->save();
+
+    // Flash success message and redirect back
+    session()->flash('success', 'Post Updated Successfully');
+    return redirect()->back();
+
+}
 
     public function destroy(string $id)
     {
-        //
+        $post = Post::find($id);
+        // dd($post);
+        if (! $post) {
+            abort('404', 'Record Not Found');
+        } else {
+           Storage::disk('public')->delete($post->post_image);
+           $post->delete();
+        }
+        session()->flash('success', 'User Delete Successfully');
+        return redirect()->back();
     }
 }
