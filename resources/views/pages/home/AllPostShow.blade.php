@@ -35,6 +35,9 @@
                <div class="d-flex justify-content-center mt-3">
                 {{ $postdetail->links() }}
                </div>
+
+               <!-- Footer -->
+                <x-footer/>
         </div>
     </div>
     

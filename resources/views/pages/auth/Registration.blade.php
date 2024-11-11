@@ -159,6 +159,8 @@
                     <a href="{{ route('login') }}" class="text-primary text-decoration-underline fw-bold">Login</a>
                 </p>
             </div>
+                                       <!-- Footer -->
+                                       <x-footer/>
 
         </div>
     </div>

@@ -150,7 +150,8 @@
                     </form>
                 </div>
             </div>
-
+                                                 <!-- Footer -->
+                                                 <x-footer/>
         </div>
     </div>
   </body>

@@ -75,6 +75,8 @@
                     <a href="{{ route('userProfile.create') }}" class="text-primary text-decoration-underline fw-bold">Signin</a>
                 </p>
               </div>
+                                         <!-- Footer -->
+                                         <x-footer/>
         </div>
     </div>
 </body>

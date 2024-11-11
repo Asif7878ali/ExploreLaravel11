@@ -92,6 +92,8 @@
                             </div>
                         </form>
                     </div>
+                                               <!-- Footer -->
+                                               <x-footer/>
                 </div>
             </div>
         </div>
