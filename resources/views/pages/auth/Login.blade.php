@@ -29,6 +29,13 @@
                                 {{ session()->get('success') }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                             </div>
+                            @elseif(session('error'))
+                            <div class="alert alert-danger alert-dismissible fade show">
+                                <strong>Error!</strong>
+                                {{ session()->get('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+
                         @endif
 
                         <form method="POST" action="{{ route('auth') }}">

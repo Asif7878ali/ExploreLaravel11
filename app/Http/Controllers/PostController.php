@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -40,13 +41,15 @@ class PostController extends Controller
                   // storage is facade Disk is which file system you upload a image local or public Put method accept two artument first is path second is file
                    $imageiwithpath  = Storage::disk('public')->put('/uploads/PostImage', $request->image);
                 //    dd($imageiwithpath);
-                   Post::create([
+                $post = Post::create([
                         'post_image' => $imageiwithpath,
                         'title' => $request->title,
                         'description' => $request->description,
                         'viewable' => $request->post,
                         'person_who_create' => Auth::id()
                    ]);
+
+                   User::where('user_id', $post->person_who_create)->increment('no_posts');
                    session()->flash('success', 'Post Created Successfully');
                    return to_route('post.create');
               } else {
@@ -134,6 +137,7 @@ public function update(Request $request, string $id)
         } else {
            Storage::disk('public')->delete($post->post_image);
            $post->delete();
+           User::where('user_id', $post->person_who_create)->decrement('no_posts');
         }
         session()->flash('success', 'User Delete Successfully');
         return redirect()->back();

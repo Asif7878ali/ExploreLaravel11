@@ -33,6 +33,7 @@ class AuthController extends Controller
             }
         } else {
             session()->flash('error', 'Invalid email or password'); 
+            // dd('User Invalid');
             return to_route('login');
         }
     }
