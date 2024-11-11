@@ -10,6 +10,8 @@
     <script src="{{ asset('js/imagePreview.js') }}" defer></script>
 </head>
 <body>
+     <!-- Navbar -->
+     <x-navbar/>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">

@@ -12,7 +12,7 @@ class PostController extends Controller
 
     public function index()
     {   // this with method user is a function in Post Model i have write
-        $postdetail = Post::where('viewable', '0')->with('user')->get();
+        $postdetail = Post::where('viewable', '0')->with('user')->paginate(6);
         return view('pages.home.AllPostShow', compact('postdetail'));
     }
 

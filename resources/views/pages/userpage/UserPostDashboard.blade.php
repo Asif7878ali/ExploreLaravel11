@@ -11,6 +11,8 @@
 </head>
 
 <body>
+     <!-- Navbar -->
+     <x-navbar/>
     {{-- Posts --}}
     {{-- {{dd($postdetail->all())}} --}}
     <div class="container my-5">

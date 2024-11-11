@@ -14,6 +14,8 @@
 </head>
 
 <body class="bg-light">
+     <!-- Navbar -->
+     <x-navbar/>
     <div class="container vh-100 d-flex align-items-center justify-content-center">
         <div class="col-md-6">
             <div class="card">

@@ -11,6 +11,8 @@
 </head>
 
 <body>
+     <!-- Navbar -->
+     <x-navbar/>
     <div class="container my-4">
         <h1>Admin Panel</h1>
         <!-- Authenticated User Info -->
