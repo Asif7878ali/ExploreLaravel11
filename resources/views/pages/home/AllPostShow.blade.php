@@ -57,7 +57,7 @@
                     <div class="row g-0">
                         <!-- Image Section -->
                         <div class="col-md-4">
-                            <img src="https://images.unsplash.com/photo-1727160930825-97245483a509?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-start " alt="Post Image">
+                            <img src="https://images.unsplash.com/photo-1725994390784-1ab5232a387d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-start " alt="Post Image">
                         </div>
                         
                         <!-- Content Section -->
@@ -78,6 +78,7 @@
                         <!-- Add New Comment -->
                         <form class="mt-4" method="POST" action="{{route('comment')}}">
                             @csrf
+                            <input type="hidden" name="post_id" value={{$post->post_id}}>
                             <div class="mb-3">
                                 <textarea name='comment' class="form-control" rows="2" placeholder="Write a comment..." required></textarea>
                             </div>
