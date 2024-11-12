@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminPanelFunctionality;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Middleware\AdminDashboard;
@@ -29,3 +30,6 @@ Route::controller(AuthController::class)->group(function(){
 
 //Search for User
 Route::get('/serach',[AdminPanelFunctionality::class, 'searchUser'])->name('searchuser');
+
+//Comment on Post
+Route::post('/post/comments',[CommentController::class,'PostComment'])->name('comment');
