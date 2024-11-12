@@ -12,13 +12,19 @@ class Post extends Model
     use HasFactory;
     protected $primaryKey = 'post_id';  
     protected $fillable =['post_image', 'title', 'description', 'viewable','person_who_create'];
-    // Define the relationship with User model
+     // Relationship: A Post belongs to a User
     public function user(){
           // first parameter is forign key of posts table
           // second parameter is primary key of users table
         return $this->belongsTo(User::class,'person_who_create','user_id');
     }
 
+     // Relationship: A Post has many Comments
+     public function comments(){
+         // first parameter is forign key of comment table
+         // second parameter is primary key of post table
+        return $this->hasMany(Comment::class,'post','post_id');
+     }
     //Accesor
     protected function title(): Attribute
     {

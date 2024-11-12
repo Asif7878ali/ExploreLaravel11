@@ -11,10 +11,10 @@ class CommentController extends Controller
         $authUser = Auth::check();
         // dd($user);
         if ($authUser === false) {
-        session()->flash('error', 'Please Login to Comments on Post');
-        return to_route('post.index');
+             session()->flash('error', 'Please Login to Comments on Post');
+             return to_route('post.index');
         } else {
-            dd($request->all());
+             dd($request->all());
         }
         
        

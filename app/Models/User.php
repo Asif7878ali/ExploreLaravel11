@@ -30,6 +30,13 @@ class User extends Authenticatable
         return $this->hasMany(Post::class,'person_who_create','user_id');
      }
 
+      // Define the relationship with Comment model
+      public function comments(){
+         // first parameter is forign key of comment table
+        // second parameter is primary key of users table
+        return $this->hasMany(Comment::class,'user','user_id');
+      }
+
     protected $fillable = [
         'name',
         'email',
