@@ -142,4 +142,11 @@ public function update(Request $request, string $id)
         session()->flash('success', 'User Delete Successfully');
         return redirect()->back();
     }
+
+    //create a custom a method our use
+    public function showPostPublic(string $id){
+        $post = Post::with('comments')->find($id);
+        // dd($post);
+        return view('pages.home.SinglePublicPosts', compact('post'));
+    }
 }

@@ -26,6 +26,9 @@
         .topcard{
             width: 500px;
         }
+        .cursorpoint{
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -54,7 +57,7 @@
             @foreach ($postdetail as $post)
             <div class="container mt-4 topcard">
                 <div class="card shadow-sm border-0">
-                    <div class="row g-0">
+                    <a href={{ route('post.showPostPublic', $post->post_id) }} class="row g-0 cursorpoint text-decoration-none text-reset">
                         <!-- Image Section -->
                         <div class="col-md-4">
                             <img src="https://images.unsplash.com/photo-1725994390784-1ab5232a387d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-start " alt="Post Image">
@@ -71,7 +74,7 @@
                                 <p class="card-text"><small class="text-muted">Written by: {{ $post->user->name ?? 'Unknown' }}</small></p>
                             </div>
                         </div>
-                    </div>
+                    </a>
             
                     <!-- Comment Section -->
                     <div class="card-footer">                       

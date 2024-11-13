@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,15 +14,25 @@ class Comment extends Model
     protected $fillable =['user', 'comment', 'post'];
     // Define the relationship with User model
     public function user(){
-         // first parameter is forign key of comments table
-         // second parameter is primary key of users table
+          // The first parameter is the related model (User).
+         //The second parameter is the foreign key in the current model(comments table) 
+         // The third parameter is the primary key of the related model(users table)
          return $this->belongsTo(User::class, 'user','user_id');
     }
 
         // Define the relationship with Post model
         public function post(){
-            // first parameter is forign key of comments table
-            // second parameter is primary key of post table
+        // The first parameter is the related model (Post).
+         //The second parameter is the foreign key in the current model(comments table) 
+         // The third parameter is the primary key of the related model(posts table)
             return $this->belongsTo(Post::class, 'post','post_id');
        }
+       //Accesor
+      protected function createdAt(): Attribute {
+        return Attribute::make(
+            get: function ($value) { 
+                return Carbon::parse($value)->diffForHumans();
+            }
+        );
+    }    
 }
