@@ -9,9 +9,7 @@ use App\Http\Middleware\AdminDashboard;
 use Illuminate\Support\Facades\Route;
 
 //Load Home Page
-Route::get('/', function(){
-    return view('pages.home.welcome');
-});
+Route::view('/','pages.home.welcome');
 
 //User Controller Route Create, Read, Update, Delete
 Route::resource('userProfile', UserProfileController::class);

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,6 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        //Pagination with Bootstrap 5 use
         Paginator::useBootstrapFive();
+        //Modal disable Eager Loading
+        Model::preventLazyLoading();
     }
 }
