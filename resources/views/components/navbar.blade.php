@@ -25,16 +25,16 @@
                     @csrf
                     <button type="submit" class="btn btn-danger">Logout </button>
                 </form>
-
-                @else
+                @endauth
+                
+                @guest
                 <a href={{route('login')}} data-mdb-ripple-init class="btn btn-link px-3 me-2">
                     Login
                 </a>
                 <a href={{route('userProfile.create')}} data-mdb-ripple-init class="btn btn-primary me-3">
                     Sign up for free
                 </a>
-                @endauth
-               
+                @endguest               
             </div>
         </div>
     </div>       

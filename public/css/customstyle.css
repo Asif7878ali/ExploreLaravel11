@@ -1,0 +1,26 @@
+/* AllPostShow Blade File */
+.card-custom {
+    background-color: #f5f0f0;
+    color: black;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.card-custom img {
+    object-fit: cover;
+    height: 200px;
+    width: 400px;
+}
+.card-custom .card-body {
+    flex: 1;
+    padding: 1.5rem;
+}
+.topcard{
+    width: 500px;
+}
+.cursorpoint{
+    cursor: pointer;
+}
+/* SinglePublicPosts Blade File */
+.cardcenter{
+    margin-left: 35%;
+}

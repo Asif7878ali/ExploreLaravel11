@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Public Post</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
-
-</head>
-
-<body class="d-flex align-items-center justify-content-center">
-    {{-- {{dd($post)}} --}}
-    <div class="card mt-5" style="max-width: 540px;">
+<x-layout>
+    <!-- Navbar -->
+    <x-navbar />
+    <div class="card mt-5 cardcenter" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-4">
-                <img src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp"
-                    alt="Trendy Pants and Shoes" class="img-fluid rounded-start" />
+                <img src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp" alt="Trendy Pants and Shoes"
+                    class="img-fluid rounded-start" />
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -50,6 +38,6 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+    <!-- Footer -->
+    <x-footer />
+</x-layout>

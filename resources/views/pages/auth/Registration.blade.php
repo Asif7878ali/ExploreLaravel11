@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
-    <title>Registration Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-    <script src="{{ asset('js/validationUserProfile.js') }}" defer></script>
-</head>
-
-<body class="bg-light">
-     <!-- Navbar -->
-     <x-navbar/>
+<x-layout>
+    <!-- Navbar -->
+    <x-navbar />
+     <!-- Registration Form -->
     <div class="container vh-100 d-flex align-items-center justify-content-center">
         <div class="col-md-6">
             <div class="card">
@@ -159,11 +145,8 @@
                     <a href="{{ route('login') }}" class="text-primary text-decoration-underline fw-bold">Login</a>
                 </p>
             </div>
-                                       <!-- Footer -->
-                                       <x-footer/>
-
         </div>
     </div>
-</body>
-
-</html>
+    <!-- Footer -->
+    <x-footer />
+</x-layout>

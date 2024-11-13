@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Create a Post</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="{{ asset('js/imagePreview.js') }}" defer ></script>
-</head>
-<body>
-     <!-- Navbar -->
-     <x-navbar/>
+<x-layout>
+    <!-- Navbar -->
+    <x-navbar />
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -29,19 +18,21 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{route('post.store')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
                             @csrf
-                              <!-- Image -->
+                            <!-- Image -->
                             <div class="mb-3">
                                 <label for="image">Choose Post Image</label>
-                                <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
-                                <img id="imagePreview" src="#" alt="Image Preview" class="img-fluid mt-2" style="display: none; max-height: 200px;"/>
+                                <input type="file" class="form-control" id="image" name="image"
+                                    accept="image/*" required>
+                                <img id="imagePreview" src="#" alt="Image Preview" class="img-fluid mt-2"
+                                    style="display: none; max-height: 200px;" />
 
                                 @error('image')
-                                <div class="alert alert-danger p-1" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                                    <div class="alert alert-danger p-1" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
 
                             <!-- Title -->
@@ -56,9 +47,9 @@
                                     </div>
                                 @enderror
                             </div>
-                            
+
                             <!-- Description -->
-                             <div class="mb-3">
+                            <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
                                 <input type="text" class="form-control" id="description" name="description"
                                     placeholder="Enter a Description" value="{{ old('description') }}" required />
@@ -70,8 +61,8 @@
                                 @enderror
                             </div>
 
-                             <!-- Post Privacy -->
-                             <div class="col">
+                            <!-- Post Privacy -->
+                            <div class="col">
                                 <label for="post" class="form-label">Post Privacy</label>
                                 <select class="form-select" id="post" name="post" required>
                                     <option value="">Select</option>
@@ -92,11 +83,10 @@
                             </div>
                         </form>
                     </div>
-                                               <!-- Footer -->
-                                               <x-footer/>
                 </div>
             </div>
         </div>
     </div>
-  </body>
-</html>
+    <!-- Footer -->
+    <x-footer />
+</x-layout>

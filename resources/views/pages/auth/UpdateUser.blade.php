@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Update Record</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-    <script src="{{ asset('js/validationUserProfile.js') }}" defer></script>
-</head>
-<body class="bg-light">
-     <!-- Navbar -->
-     <x-navbar/>
+<x-layout>
+    <!-- Navbar -->
+    <x-navbar />
     <div class="container vh-100 d-flex align-items-center justify-content-center">
         <div class="col-md-6">
             <div class="card">
@@ -29,7 +17,7 @@
                         </div>
                     @endif
 
-                    <form  method="POST" action="{{ route('userProfile.update', $user->user_id) }}">
+                    <form method="POST" action="{{ route('userProfile.update', $user->user_id) }}">
                         @csrf
                         @method('PATCH')
                         <div class="mb-3 row">
@@ -91,7 +79,8 @@
                             <label class="form-label d-block">Gender</label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="gender" id="male"
-                                    value="male" {{ old('gender', $user->gender) == 'male' ? 'checked' : '' }} required />
+                                    value="male" {{ old('gender', $user->gender) == 'male' ? 'checked' : '' }}
+                                    required />
                                 <label class="form-check-label" for="male">Male</label>
                             </div>
                             <div class="form-check form-check-inline">
@@ -119,8 +108,10 @@
                                 <label for="admin" class="form-label">Admin</label>
                                 <select class="form-select" id="admin" name="admin" required>
                                     <option value="">Select</option>
-                                    <option value="1" {{ old('admin', $user->admin) == '1' ? 'selected' : '' }}>Yes</option>
-                                    <option value="0" {{ old('admin', $user->admin) == '0' ? 'selected' : '' }}>No</option>
+                                    <option value="1" {{ old('admin', $user->admin) == '1' ? 'selected' : '' }}>
+                                        Yes</option>
+                                    <option value="0" {{ old('admin', $user->admin) == '0' ? 'selected' : '' }}>No
+                                    </option>
                                 </select>
 
                                 @error('admin')
@@ -133,7 +124,7 @@
                             <div class="col">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password"
-                                    placeholder="Enter your Password" value={{$user->password}} required />
+                                    placeholder="Enter your Password" value={{ $user->password }} required />
 
                                 @error('password')
                                     <div class="alert alert-danger p-1" role="alert">
@@ -150,9 +141,8 @@
                     </form>
                 </div>
             </div>
-                                                 <!-- Footer -->
-                                                 <x-footer/>
         </div>
     </div>
-  </body>
-</html>
+    <!-- Footer -->
+    <x-footer />
+</x-layout>
