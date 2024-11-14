@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // Phone number validation: Allow only digits and limit to 10 characters
-    $('#typeNumber').on('input', function () {
+    $('#number').on('input', function () {
         this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
     });
 
@@ -26,10 +26,10 @@ $(document).ready(function () {
         }
 
         // Phone number validation: Exactly 10 digits
-        const phone = $('#typeNumber').val();
+        const phone = $('#number').val();
         if (phone.length !== 10) {
             console.error('Phone number must be exactly 10 digits.');
-            $('#typeNumber').focus();
+            $('#number').focus();
             isValid = false;
         }
 

@@ -53,7 +53,7 @@ class UserProfileController extends Controller
                 'min:10',
                 'max:255'
             ],
-            'phoneNumber' => [
+            'number' => [
                 'required',
                 'digits:10',
                 'regex:/^[6-9][0-9]{9}$/'
@@ -72,23 +72,15 @@ class UserProfileController extends Controller
                 'max:8'
             ]
         ]);
-        //   dd($request->all());
+        // dd($cridentials); 
         // add record to database
-        User::create([
-            'name' => $cridentials['name'],
-            'email' => $cridentials['email'],
-            'address' => $cridentials['address'],
-            'number' => $cridentials['phoneNumber'],
-            'gender' => $cridentials['gender'],
-            'admin' => $cridentials['admin'],
-            'password' => $cridentials['password']
-        ]);
+        User::create($cridentials);
 
         session()->flash('success', 'Registration Created Successfully');
         // old way to redirect route
         // return redirect()->route('userProfile.create');
          // new way to redirect route add in laravel 10;
-        return to_route('loginpage');
+        return to_route('login');
     }
 
     /**
@@ -153,7 +145,7 @@ class UserProfileController extends Controller
                 'min:10',
                 'max:255'
             ],
-            'phoneNumber' => [
+            'number' => [
                 'required',
                 'digits:10',
                 'regex:/^[6-9][0-9]{9}$/'
@@ -177,15 +169,7 @@ class UserProfileController extends Controller
         if(! $user){
             abort('404', 'Record Not Found');
         } else {
-           $user->update([
-            'name' => $cridentials['name'],
-            'email' => $cridentials['email'],
-            'address' => $cridentials['address'],
-            'number' => $cridentials['phoneNumber'],
-            'gender' => $cridentials['gender'],
-            'admin' => $cridentials['admin'],
-            'password' => $cridentials['password']
-           ]);
+           $user->update($cridentials);
         }
 
         session()->flash('success', 'User Record Update Successfully');

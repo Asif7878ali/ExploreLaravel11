@@ -24,8 +24,8 @@ Route::resource('post', PostController::class)->only('create')->middleware('auth
 
 //Authtication Route
 Route::controller(AuthController::class)->group(function(){
-    Route::get('/auth/login/page', 'showLoginPage')->name('login');
-    Route::post('/auth/login', 'checkLogin')->name('auth');
+    Route::get('/auth/login/page', 'loginPage')->name('login');
+    Route::post('/auth/login', 'login')->name('login');
     Route::post('/auth/logout', 'Logout')->name('logout');
 });
 

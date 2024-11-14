@@ -62,11 +62,11 @@
                             </div>
                             <!-- Phone Number -->
                             <div class="col">
-                                <label class="form-label" for="typeNumber">Phone Number</label>
-                                <input type="text" id="typeNumber" name="phoneNumber" class="form-control"
-                                    value="{{ old('phoneNumber', $user->number) }}" required />
+                                <label class="form-label" for="number">Phone Number</label>
+                                <input type="text" id="number" name="number" class="form-control"
+                                    value="{{ old('number', $user->number) }}" required />
 
-                                @error('phoneNumber')
+                                @error('number')
                                     <div class="alert alert-danger p-1" role="alert">
                                         {{ $message }}
                                     </div>

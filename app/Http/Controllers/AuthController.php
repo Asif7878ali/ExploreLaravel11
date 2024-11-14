@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function showLoginPage(){
+    public function loginPage(){
         return view('pages.auth.Login');
     }
 
-    public function checkLogin(Request $request){
+    public function login(Request $request){
         // dd($request->all());
          // Validate the login input
          $credentials = $request->validate([
