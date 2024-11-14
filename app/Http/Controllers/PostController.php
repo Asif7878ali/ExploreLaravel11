@@ -145,7 +145,7 @@ public function update(Request $request, string $id)
 
     //create a custom a method our use
     public function showPostPublic(string $id){
-        $post = Post::with('comments')->find($id);
+        $post = Post::with('comments.users')->find($id);
         // dd($post);
         return view('pages.home.SinglePublicPosts', compact('post'));
     }

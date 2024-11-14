@@ -13,7 +13,7 @@ class Comment extends Model
     protected $primaryKey = 'comment_id'; 
     protected $fillable =['user', 'comment', 'post'];
     // Define the relationship with User model
-    public function user(){
+    public function users(){
           // The first parameter is the related model (User).
          //The second parameter is the foreign key in the current model(comments table) 
          // The third parameter is the primary key of the related model(users table)
@@ -21,7 +21,7 @@ class Comment extends Model
     }
 
         // Define the relationship with Post model
-        public function post(){
+        public function posts(){
         // The first parameter is the related model (Post).
          //The second parameter is the foreign key in the current model(comments table) 
          // The third parameter is the primary key of the related model(posts table)

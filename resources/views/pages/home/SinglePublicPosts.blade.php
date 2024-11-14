@@ -1,6 +1,7 @@
 <x-layout>
     <!-- Navbar -->
     <x-navbar />
+    {{-- {{dd($post)}} --}}
     <div class="card mt-5 cardcenter" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-4">
@@ -27,7 +28,8 @@
             <div class="comments mt-3">
                 @forelse ($post->comments as $comment)
                     <div class="mb-3">
-                        <strong>{{ $comment->user->name ?? 'Anonymous' }}</strong>
+                        {{-- {{dd($comment)}} --}}
+                        <strong>{{ $comment->users->name ?? 'Anonymous' }}</strong>
                         <p>{{ $comment->comment }}</p>
                         <p><small class="text-muted">{{ $comment->created_at ?? 'Unknown' }}</small></p>
                     </div>
