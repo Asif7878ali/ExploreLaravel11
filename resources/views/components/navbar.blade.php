@@ -28,7 +28,7 @@
                 @endauth
                 
                 @guest
-                <a href={{route('login')}} data-mdb-ripple-init class="btn btn-link px-3 me-2">
+                <a href={{route('login.page')}} data-mdb-ripple-init class="btn btn-link px-3 me-2">
                     Login
                 </a>
                 <a href={{route('userProfile.create')}} data-mdb-ripple-init class="btn btn-primary me-3">

@@ -50,6 +50,6 @@ class AuthController extends Controller
          session()->flash('success', 'Logged out successfully');
  
          // Redirect to the login or home page
-         return to_route('login');
+         return to_route('login.page');
     }
 }

@@ -24,3 +24,14 @@
 .cardcenter{
     margin-left: 35%;
 }
+
+/* AllPostShow Blade File */
+.setimage{
+    width: 10rem;
+    height: 15rem;
+}
+/* SinglePost Blade File */
+.setimagesinhle{
+    width: 12rem;
+    height: 20rem;
+}

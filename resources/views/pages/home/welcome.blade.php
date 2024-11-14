@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="lc-block">
-                  <a href={{route('login')}}  class="btn btn-primary btn-sm">Login</a>
+                  <a href={{route('login.page')}}  class="btn btn-primary btn-sm">Login</a>
                   <a href={{route('userProfile.create')}} class="btn btn-info btn-sm">Signup</a>    
                 </div>
 

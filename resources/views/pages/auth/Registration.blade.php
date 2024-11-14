@@ -142,7 +142,7 @@
             <!-- Navigate to Login Page -->
             <div class="m-2 text-center">
                 <p>Already a User?
-                    <a href="{{ route('login') }}" class="text-primary text-decoration-underline fw-bold">Login</a>
+                    <a href="{{ route('login.page') }}" class="text-primary text-decoration-underline fw-bold">Login</a>
                 </p>
             </div>
         </div>

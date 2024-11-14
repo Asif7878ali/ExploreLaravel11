@@ -21,11 +21,10 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
             'address' => $this->faker->address(),
             'number' => $this->faker->unique()->numerify('##########'),
             'gender' => $this->faker->randomElement(['male', 'female', 'other']),
-            'admin' => $this->faker->boolean(10), // 10% chance of being true
+            'admin' => $this->faker->boolean(25), // 40% chance of being true
             'password' => $this->faker->randomNumber(5, true)
         ];
     }
