@@ -19,9 +19,9 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-          'user' => User::factory(),
+          'user' => User::inRandomOrder()->first()->user_id,
           'comment' => $this->faker->realTextBetween($minNbChars = 50, $maxNbChars = 200, $indexSize = 2),
-          'post' => Post::factory()
+          'post' => Post::inRandomOrder()->first()->post_id,
         ];
     }
 }
